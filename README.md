@@ -2,7 +2,7 @@
 A mini program that can change the names of all the files under a folder to the dates when they were created.
 
 # How to use it?
-1. Download the exe file from Assets.
+1. Download the exe file from [Assets](https://github.com/williamtao345/file_name_changer/releases/).
 2. Paste the exe file to the folder where your files are located on your computer.
 3. Double-click the exe file, and follow the instructions.
 
