@@ -1,13 +1,8 @@
 import os
 import datetime
 
-path = os.getcwd()
 
 date_format = "%Y-%m-%d %H.%M.%S"
-# "%Y-%m-%dT%H:%M:%S"
-
-print(f"Path: {path}")
-input()
 
 
 def get_modified_date(file_path):
@@ -39,9 +34,17 @@ def append_file_type(file_path, file_type):
     return file_path + "." + file_type
 
 
-# file_path_input = input("File path: ")
-# if len(file_path_input) != 0:
-#     path = file_path_input.replace("\"", "")
+path = os.getcwd()
+
+print("Instructions:")
+print("This program will ignores all the folders under the path., only change all the files.")
+print("You will be asked if you want to change each file.")
+print()
+print("Hope you enjoy! -- William Tao")
+print()
+print(f"Current folder path: {path}   Press enter to continue.", end="")
+input()
+print()
 
 file = os.listdir(path)
 
@@ -53,12 +56,12 @@ for i in file:
     if not os.path.isfile(current_file_path):
         continue
 
+    if current_file_name.lower() == "file_name_changer.exe":
+        continue
+
     current_file_type = ""
     if "." in current_file_name:
         current_file_type = str(current_file_name).split(".").pop()
-
-    if current_file_type.lower() == "exe":
-        continue
 
     target_file_name = get_modified_date(current_file_path)
     target_file_path = os.path.join(path, target_file_name)
@@ -68,7 +71,7 @@ for i in file:
     if need_change_all_files:
         reset_file_name(current_file_path, target_file_path, current_file_type)
     else:
-        user_input = input("Change file name? (s: skip, a: change all)")
+        user_input = input("Change file name? (ENTER key: change this file; s: skip; a: change all) ")
         print()
 
         if user_input == "":
@@ -80,3 +83,6 @@ for i in file:
             reset_file_name(current_file_path, target_file_path, current_file_type)
         else:
             break
+
+print("This program is created by William Tao. Hope it was helpful for you!", end="")
+input()
